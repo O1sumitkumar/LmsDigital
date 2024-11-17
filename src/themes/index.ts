@@ -2,7 +2,7 @@ export const light = {
   dark: false,
   colors: {
     card: 'rgb(255, 255, 255)',
-    text: 'rgb(255, 255, 255)',
+    text: 'rgb(0, 0, 0)',
     border: 'rgb(117, 119, 128)',
     notification: 'rgb(255, 69, 58)',
     primary: 'rgb(0, 88, 201)',
@@ -56,7 +56,7 @@ export const dark = {
   dark: true,
   colors: {
     card: 'rgb(27, 27, 31)',
-    text: 'rgb(227, 226, 230)',
+    text: 'rgb(255, 255, 255)',
     border: 'rgb(117, 119, 128)',
     notification: 'rgb(255, 69, 58)',
     primary: 'rgb(175, 198, 255)',

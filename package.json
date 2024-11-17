@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
-    "start": "react-native start --reset-cache && adb connect 192.168.31.61:5555",
+    "start": "react-native start --reset-cache --experimental-debugger",
     "test": "jest"
   },
   "dependencies": {
