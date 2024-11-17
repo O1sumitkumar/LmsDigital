@@ -1,6 +1,10 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
   "compilerOptions": {
+    "target": "es2015",
+    "module": "es2015",
+    "jsx": "react-native",
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
       "@api/*": ["src/services/apis/*"],
@@ -15,7 +19,9 @@
       "@utils/*": ["src/utils/*"],
       "@interfaces/*": ["src/interfaces/*"],
       "@functions/*": ["src/functions/*"],
-      "@toolkit/*": ["src/toolkit/*"]
+      "@toolkit/*": ["src/toolkit/*"],
+      "@routes/*": ["src/routes/*"],
+      "@language/*": ["src/language/*"]
     }
   }
 }
