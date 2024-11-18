@@ -1,10 +1,11 @@
-import strings from '@language/index';
 import {toggleLanguage, toggleTheme} from '@toolkit/auth/auth.slice';
-import {RootState} from '@toolkit/rootReducer';
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {Button, Text} from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
+import {Button, Text} from 'react-native-paper';
+import {RootState} from '@toolkit/rootReducer';
+import {StyleSheet, View} from 'react-native';
+import strings from '@language/index';
+import React from 'react';
+
 interface LoginProps extends ScreenProps {}
 
 const Login: React.FC<LoginProps> = () => {

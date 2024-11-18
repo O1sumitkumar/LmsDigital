@@ -13,11 +13,16 @@ import React from 'react';
 
 export default function AppNavigator(): React.JSX.Element {
   const {theme, language} = useSelector((state: RootState) => state?.userData);
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const userMode =
     theme === 'dark' || (theme !== 'light' && isDarkMode) ? dark : light;
-  const backgroundColor = isDarkMode ? Colors.darker : Colors.lighter;
+
+  const backgroundColor =
+    theme === 'dark' || (theme !== 'light' && isDarkMode)
+      ? Colors.darker
+      : Colors.lighter;
   const direction = language === 'ar' ? 'rtl' : 'ltr';
 
   const userTheme = {
@@ -28,12 +33,19 @@ export default function AppNavigator(): React.JSX.Element {
     }) as unknown as Record<string, MD3Type>,
   };
 
+  const statusBarStyle =
+    theme === 'dark' || (theme !== 'light' && isDarkMode)
+      ? 'light-content'
+      : 'dark-content';
+
   return (
     <PaperProvider theme={userTheme as any}>
       <NavigationContainer direction={direction} theme={userTheme as any}>
         <StatusBar
-          barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+          barStyle={statusBarStyle}
           backgroundColor={backgroundColor}
+          translucent={true}
+          animated
         />
         <MainNavigator />
       </NavigationContainer>

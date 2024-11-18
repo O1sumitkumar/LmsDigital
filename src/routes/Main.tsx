@@ -14,9 +14,17 @@ function ParentNavigator(): React.JSX.Element {
   return (
     <ParentStack.Navigator>
       {userData ? (
-        <ParentStack.Screen name="Private" component={PrivateRoutes} />
+        <ParentStack.Screen
+          options={{headerShown: false}}
+          name="Private"
+          component={PrivateRoutes}
+        />
       ) : (
-        <ParentStack.Screen name="Auth" component={Auth} />
+        <ParentStack.Screen
+          options={{headerShown: false}}
+          name="Auth"
+          component={Auth}
+        />
       )}
     </ParentStack.Navigator>
   );
@@ -25,7 +33,11 @@ function ParentNavigator(): React.JSX.Element {
 export default function MainNavigator(): React.JSX.Element {
   return (
     <MainStack.Navigator>
-      <MainStack.Screen name="App" component={ParentNavigator} />
+      <MainStack.Screen
+        options={{headerShown: false}}
+        name="App"
+        component={ParentNavigator}
+      />
     </MainStack.Navigator>
   );
 }

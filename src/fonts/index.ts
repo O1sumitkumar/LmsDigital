@@ -52,5 +52,19 @@ export const fontConfig: any = {
       fontFamily: 'sans-serif-thin',
       fontWeight: 'normal',
     },
+    headlineSmall: {
+      fontFamily: 'Montserrat',
+      fontSize: 24,
+      fontStyle: 'normal',
+      fontWeight: '700',
+      lineHeight: 'normal',
+    },
+    titleSmall: {
+      fontFamily: 'Montserrat',
+      fontSize: 14,
+      fontWeight: '500',
+      fontStyle: 'normal',
+      lineHeight: 'normal',
+    },
   },
 };

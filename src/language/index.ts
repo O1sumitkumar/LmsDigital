@@ -7,8 +7,8 @@ import ar from './ar';
 // let LocalizedStrings  = require ('react-native-localization');
 
 const strings = new LocalizedStrings({
-  en: en,
   ar: ar,
+  en: en,
 });
 
 export default strings;

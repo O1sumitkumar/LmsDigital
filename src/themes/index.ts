@@ -2,10 +2,13 @@ export const light = {
   dark: false,
   colors: {
     card: 'rgb(255, 255, 255)',
+    /// custom color for primary button
+    secondaryBtn: '#1EA44B',
+    /// custom color for primary button
     text: 'rgb(0, 0, 0)',
     border: 'rgb(117, 119, 128)',
     notification: 'rgb(255, 69, 58)',
-    primary: 'rgb(0, 88, 201)',
+    primary: '#196FF0',
     onPrimary: 'rgb(255, 255, 255)',
     primaryContainer: 'rgb(217, 226, 255)',
     onPrimaryContainer: 'rgb(0, 25, 68)',
@@ -55,11 +58,14 @@ export const light = {
 export const dark = {
   dark: true,
   colors: {
+    /// custom color for primary button
+    secondaryBtn: '#1EA44B',
+    /// custom color for primary button
     card: 'rgb(27, 27, 31)',
     text: 'rgb(255, 255, 255)',
     border: 'rgb(117, 119, 128)',
     notification: 'rgb(255, 69, 58)',
-    primary: 'rgb(175, 198, 255)',
+    primary: '#196FF0',
     onPrimary: 'rgb(0, 45, 109)',
     primaryContainer: 'rgb(0, 66, 154)',
     onPrimaryContainer: 'rgb(217, 226, 255)',
