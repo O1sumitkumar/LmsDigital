@@ -1,38 +1,27 @@
-import {toggleLanguage, toggleTheme} from '@toolkit/auth/auth.slice';
-import {useDispatch, useSelector} from 'react-redux';
-import {Button, Text} from 'react-native-paper';
-import {RootState} from '@toolkit/rootReducer';
+import PrimaryBtn from '@components/button/PrimaryBtn';
+import {useTranslation} from 'react-i18next';
 import {StyleSheet, View} from 'react-native';
-import strings from '@language/index';
+import {Text} from 'react-native-paper';
 import React from 'react';
 
 interface LoginProps extends ScreenProps {}
 
 const Login: React.FC<LoginProps> = () => {
-  const {language} = useSelector((state: RootState) => state?.userData);
-  const dispatch = useDispatch();
-  const {theme} = useSelector((state: RootState) => state?.userData);
+  const {t, i18n} = useTranslation();
 
-  const handleToggleLan = () => {
-    const newLanguage = language === 'en' ? 'ar' : 'en';
-    strings.setLanguage(newLanguage);
-    dispatch(toggleLanguage(newLanguage));
-  };
-
-  // toggle theme
-  const handleToggleTheme = () => {
-    dispatch(toggleTheme(theme === 'dark' ? 'light' : 'dark'));
+  // Change language
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
   };
 
   return (
     <View style={styles.container}>
-      <Text>{strings.how}</Text>
-      <Button mode="contained" onPress={handleToggleLan}>
-        toggle {language}
-      </Button>
-      <Button mode="contained" onPress={handleToggleTheme}>
-        toggle {theme}
-      </Button>
+      <Text>{t('welcome')}</Text>
+      {/* For strings with parameters */}
+      <Text>{t('greeting', {name: 'John'})}</Text>
+      <PrimaryBtn onPress={() => changeLanguage('ar')}>
+        {t('changeLanguage')}
+      </PrimaryBtn>
     </View>
   );
 };

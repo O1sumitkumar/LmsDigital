@@ -7,21 +7,11 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
-      "@api/*": ["src/services/apis/*"],
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@scenes/*": ["src/scenes/*"],
-      "@screens/*": ["src/screens/*"],
-      "@themes/*": ["src/themes/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@types/*": ["src/types/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@utils/*": ["src/utils/*"],
-      "@interfaces/*": ["src/interfaces/*"],
-      "@functions/*": ["src/functions/*"],
+      "@api/*": ["src/api/*"],
+      "@config/*": ["src/config/*"],
       "@toolkit/*": ["src/toolkit/*"],
-      "@routes/*": ["src/routes/*"],
-      "@language/*": ["src/language/*"]
+      "@language/*": ["src/language/*"],
+      "@components/*": ["src/components/*"]
     }
   }
 }
