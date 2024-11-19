@@ -11,7 +11,13 @@
       "@config/*": ["src/config/*"],
       "@toolkit/*": ["src/toolkit/*"],
       "@language/*": ["src/language/*"],
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@routes/*": ["src/routes/*"],
+      "@screens/*": ["src/screens/*"],
+      "@assets/*": ["src/assets/*"],
+      "@themes/*": ["src/themes/*"]
     }
   }
 }

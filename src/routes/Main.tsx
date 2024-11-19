@@ -32,7 +32,10 @@ function ParentNavigator(): React.JSX.Element {
 
 export default function MainNavigator(): React.JSX.Element {
   return (
-    <MainStack.Navigator>
+    <MainStack.Navigator
+      screenOptions={{
+        animation: 'ios_from_left',
+      }}>
       <MainStack.Screen
         options={{headerShown: false}}
         name="App"

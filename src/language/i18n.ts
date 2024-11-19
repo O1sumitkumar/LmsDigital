@@ -1,8 +1,10 @@
-import i18n from 'i18next';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {initReactI18next} from 'react-i18next';
-import en from '@language/en';
+import {store} from '@toolkit/store';
 import ar from '@language/ar';
+import en from '@language/en';
+import i18n from 'i18next';
+
+const language: string = store?.getState()?.userData?.language;
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -13,7 +15,7 @@ i18n.use(initReactI18next).init({
       translation: ar,
     },
   },
-  lng: 'en', // default language
+  lng: language || 'ar', // default language
   fallbackLng: 'en',
   interpolation: {
     escapeValue: false,
@@ -22,27 +24,5 @@ i18n.use(initReactI18next).init({
     useSuspense: false,
   },
 });
-
-// Function to initialize language from storage
-export const initializeLanguage = async () => {
-  try {
-    const savedLanguage = await AsyncStorage.getItem('user-language');
-    if (savedLanguage) {
-      i18n.changeLanguage(savedLanguage);
-    }
-  } catch (error) {
-    console.error('Error loading language:', error);
-  }
-};
-
-// Function to save language preference
-export const saveLanguagePreference = async (language: string) => {
-  try {
-    await AsyncStorage.setItem('user-language', language);
-    i18n.changeLanguage(language);
-  } catch (error) {
-    console.error('Error saving language:', error);
-  }
-};
 
 export default i18n;
