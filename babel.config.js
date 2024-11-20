@@ -37,6 +37,7 @@ module.exports = {
           '@interfaces': './src/interfaces',
           '@routes': './src/routes',
           '@language': './src/language',
+          '@animations': './src/animations',
         },
       },
     ],

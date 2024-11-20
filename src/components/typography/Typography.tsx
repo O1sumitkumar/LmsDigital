@@ -5,9 +5,9 @@ import React from 'react';
 
 interface TypographyProps {
   text: string;
-  fontSize: 24 | 14;
+  fontSize: 24 | 14 | 16;
   textAlign?: 'left' | 'center' | 'right';
-  fontWeight?: 'normal' | 'bold';
+  fontWeight?: 'normal' | 'bold' | '600';
   lineHeight?: 14 | 24 | 32;
 }
 

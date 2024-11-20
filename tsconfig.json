@@ -13,6 +13,7 @@
       "@language/*": ["src/language/*"],
       "@components/*": ["src/components/*"],
       "@hooks/*": ["src/hooks/*"],
+      "@animations/*": ["src/animations/*"],
       "@layouts/*": ["src/layouts/*"],
       "@routes/*": ["src/routes/*"],
       "@screens/*": ["src/screens/*"],
