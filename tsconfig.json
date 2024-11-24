@@ -18,7 +18,14 @@
       "@routes/*": ["src/routes/*"],
       "@screens/*": ["src/screens/*"],
       "@assets/*": ["src/assets/*"],
-      "@themes/*": ["src/themes/*"]
+      "@themes/*": ["src/themes/*"],
+      "@constants/*": ["src/constants/*"],
+      "@typography/*": ["src/components/typography/*"],
+      "@heading/*": ["src/components/heading/*"],
+      "@button/*": ["src/components/button/*"],
+      "@input/*": ["src/components/input/*"],
+      "@card/*": ["src/components/card/*"],
+      "@modal/*": ["src/components/modal/*"]
     }
   }
 }

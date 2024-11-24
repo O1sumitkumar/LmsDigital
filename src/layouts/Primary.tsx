@@ -15,14 +15,20 @@ const PrimaryLayout: React.FC<PrimaryLayoutProps> = ({
   edges = ['top', 'bottom'],
   isCenter = false,
 }) => {
-  const justifyContent = isCenter ? 'center' : 'flex-start';
-  const alignItems = isCenter ? 'center' : 'flex-start';
+  const centerContainer = {
+    ...style.container,
+    justifyContent: 'center',
+  };
 
   return (
     <SafeAreaView
       edges={edges}
-      style={[style.container, {justifyContent, alignItems}]}>
-      {isScroll ? <ScrollView>{children}</ScrollView> : <View>{children}</View>}
+      style={isCenter ? centerContainer : style.container}>
+      {isScroll ? (
+        <ScrollView>{children}</ScrollView>
+      ) : (
+        <View style={style.container}>{children}</View>
+      )}
     </SafeAreaView>
   );
 };

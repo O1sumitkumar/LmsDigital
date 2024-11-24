@@ -5,7 +5,7 @@ export const light = {
     /// custom color for primary button
     secondaryBtn: '#1EA44B',
     /// custom color for primary button
-    text: 'rgb(0, 0, 0)',
+    text: '#0C0C0C',
     border: 'rgb(117, 119, 128)',
     notification: 'rgb(255, 69, 58)',
     primary: '#196FF0',
@@ -24,7 +24,7 @@ export const light = {
     onError: 'rgb(255, 255, 255)',
     errorContainer: 'rgb(255, 218, 214)',
     onErrorContainer: 'rgb(65, 0, 2)',
-    background: 'rgb(254, 251, 255)',
+    background: '#FFFFFF',
     onBackground: 'rgb(27, 27, 31)',
     surface: 'rgb(254, 251, 255)',
     onSurface: 'rgb(27, 27, 31)',
@@ -62,7 +62,7 @@ export const dark = {
     secondaryBtn: '#1EA44B',
     /// custom color for primary button
     card: 'rgb(27, 27, 31)',
-    text: 'rgb(255, 255, 255)',
+    text: '#BBBBBB',
     border: 'rgb(117, 119, 128)',
     notification: 'rgb(255, 69, 58)',
     primary: '#196FF0',

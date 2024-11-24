@@ -1,13 +1,15 @@
-// all the auth routes go here
-
-import logo from '@assets/svgs/logo';
-import MenuModal from '@components/modal/MenuModal';
-import useAppTheme from '@hooks/useAppTheme';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {selectLanguage} from '@toolkit/auth/auth.selector';
+import MenuModal from '@components/modal/MenuModal';
 import {Login, WelcomeScreen} from '@screens/auth';
+import arabicLogo from '@assets/svgs/arabicLogo';
+import useAppTheme from '@hooks/useAppTheme';
+import englishLogo from '@assets/svgs/logo';
+import {RootState} from '@toolkit/store';
+import {useSelector} from 'react-redux';
+import {SvgXml} from 'react-native-svg';
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {SvgXml} from 'react-native-svg';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,17 +23,22 @@ const RenderRightHeader = (
   );
 };
 
-const RenderLeftHeader = (color: string) => {
+const RenderLeftHeader = (isArabic: boolean, colors: string) => {
+  console.log(colors);
+
+  const currentLogo = isArabic ? arabicLogo(colors) : englishLogo(colors);
   return (
     <View>
-      <SvgXml xml={logo(color, 28, 124)} />
+      <SvgXml xml={currentLogo} />
     </View>
   );
 };
 
 function Auth(): React.JSX.Element {
-  const {colors} = useAppTheme();
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const language = useSelector<RootState, string>(selectLanguage);
+  const isArabic = language === 'ar';
+  const {colors} = useAppTheme();
 
   const openMenu = () => setIsVisible(true);
   const closeMenu = () => setIsVisible(false);
@@ -48,10 +55,16 @@ function Auth(): React.JSX.Element {
           headerTransparent: true,
           headerTitle: '',
           navigationBarTranslucent: true,
-          headerRight: () => RenderRightHeader(openMenu, isVisible, closeMenu),
-          headerLeft: () => RenderLeftHeader(colors.onSurface),
+          headerLeft: () => RenderLeftHeader(isArabic, colors.text),
         }}>
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Screen
+          name="Welcome"
+          component={WelcomeScreen}
+          options={{
+            headerRight: () =>
+              RenderRightHeader(openMenu, isVisible, closeMenu),
+          }}
+        />
         <Stack.Screen name="Login" component={Login} />
       </Stack.Group>
     </Stack.Navigator>

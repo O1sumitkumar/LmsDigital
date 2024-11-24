@@ -1,18 +1,17 @@
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {unitedStateFlag} from '@assets/svgs/unitedStateFlag';
-import {selectLanguage} from '@toolkit/auth/auth.selector';
-import Typography from '@components/typography/Typography';
-import {RFValue} from 'react-native-responsive-fontsize';
-import {toggleLanguage} from '@toolkit/auth/auth.slice';
-import {useDispatch, useSelector} from 'react-redux';
 import kuwaitFlag from '@assets/svgs/kuwaitFlag';
-import {RootState} from '@toolkit/rootReducer';
+import {unitedStateFlag} from '@assets/svgs/unitedStateFlag';
+import Typography from '@components/typography/Typography';
 import useAppTheme from '@hooks/useAppTheme';
-import {useTranslation} from 'react-i18next';
-import {AppDispatch} from '@toolkit/store';
-import {Menu} from 'react-native-paper';
-import {SvgXml} from 'react-native-svg';
+import {selectLanguage} from '@toolkit/auth/auth.selector';
+import {Language, toggleLanguage} from '@toolkit/auth/auth.slice';
+import {AppDispatch, RootState} from '@toolkit/store';
 import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Menu} from 'react-native-paper';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {SvgXml} from 'react-native-svg';
+import {useDispatch, useSelector} from 'react-redux';
 
 interface MenuModalProps {
   visible: boolean;
@@ -20,21 +19,29 @@ interface MenuModalProps {
   openMenu: () => void;
 }
 
-const options = [
-  {icon: <SvgXml xml={unitedStateFlag(RFValue(20))} />, title: 'English'},
-  {icon: <SvgXml xml={kuwaitFlag(RFValue(20))} />, title: 'Arabic'},
-];
-
 const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
-  const language = useSelector<RootState, string>(selectLanguage);
+  const curLan = useSelector<RootState, string>(selectLanguage);
   const dispatch = useDispatch<AppDispatch>();
   const {i18n} = useTranslation();
   const {colors} = useAppTheme();
+  const {t} = useTranslation();
 
-  const handleLanguageChange = () => {
-    const selectedLanguage = language === 'ar' ? 'en' : 'ar';
-    dispatch(toggleLanguage(selectedLanguage));
-    i18n.changeLanguage(selectedLanguage);
+  const options = [
+    {
+      icon: <SvgXml xml={unitedStateFlag(RFValue(20))} />,
+      title: 'English',
+      onPress: () => handleLanguageChange('en'),
+    },
+    {
+      icon: <SvgXml xml={kuwaitFlag(RFValue(20))} />,
+      title: t('auth.arabic'),
+      onPress: () => handleLanguageChange('ar'),
+    },
+  ];
+
+  const handleLanguageChange = (language: Language) => {
+    dispatch(toggleLanguage(language));
+    i18n.changeLanguage(language);
     closeMenu();
   };
 
@@ -49,7 +56,7 @@ const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
       anchor={
         <TouchableOpacity onPress={openMenu}>
           <SvgXml
-            xml={language === 'ar' ? kuwaitFlag(30) : unitedStateFlag(30)}
+            xml={curLan === 'ar' ? kuwaitFlag(30) : unitedStateFlag(30)}
           />
         </TouchableOpacity>
       }>
@@ -57,7 +64,7 @@ const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
         <View key={index + 'option'} style={styles.optionContainer}>
           <TouchableOpacity
             style={styles.optionContainer}
-            onPress={handleLanguageChange}>
+            onPress={() => option.onPress()}>
             {option.icon}
             <Typography
               text={option.title}

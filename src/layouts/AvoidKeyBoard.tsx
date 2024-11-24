@@ -27,6 +27,7 @@ const AvoidKeyBoard: React.FC<AvoidKeyBoardProps> = ({children}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    // backgroundColor: 'red',
   },
   inner: {
     padding: 24,

@@ -1,8 +1,8 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 // Define specific types for theme and language
-type Theme = 'light' | 'dark' | null;
-type Language = 'en' | 'ar';
+export type Theme = 'light' | 'dark' | null;
+export type Language = 'en' | 'ar';
 
 // Define a proper type for user data
 interface UserData {

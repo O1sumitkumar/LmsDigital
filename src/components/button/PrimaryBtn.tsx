@@ -1,7 +1,7 @@
-import {RFValue} from 'react-native-responsive-fontsize';
-import {Button, ButtonProps} from 'react-native-paper';
-import {StyleSheet} from 'react-native';
 import * as React from 'react';
+import {StyleSheet} from 'react-native';
+import {Button, ButtonProps} from 'react-native-paper';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 interface PrimaryBtnProps extends ButtonProps {
   text?: string;
@@ -15,16 +15,17 @@ const PrimaryBtn = ({
   additionalBtnStyle,
   additionalLabelStyle,
   ...props
-}: PrimaryBtnProps) => (
-  <Button
-    style={[styles.button, additionalBtnStyle]}
-    labelStyle={[styles.label, additionalLabelStyle]}
-    mode={mode}
-    {...props}>
-    {text}
-  </Button>
-);
-
+}: PrimaryBtnProps) => {
+  return (
+    <Button
+      style={[styles.button, additionalBtnStyle]}
+      labelStyle={[styles.label, additionalLabelStyle]}
+      mode={mode}
+      {...props}>
+      {text}
+    </Button>
+  );
+};
 PrimaryBtn.defaultProps = {
   text: 'Set Text',
 };
