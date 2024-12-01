@@ -57,9 +57,8 @@ function Auth(): React.JSX.Element {
     <Stack.Navigator
       screenOptions={{
         animation: 'ios_from_right',
-        headerBlurEffect: 'light',
-      }}
-      initialRouteName="">
+        headerBlurEffect: 'extraLight',
+      }}>
       <Stack.Group
         screenOptions={{
           headerShown: true,
