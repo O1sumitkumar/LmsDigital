@@ -8,7 +8,12 @@
     "lint": "eslint .",
     "lint:fix": "eslint .  --fix",
     "start": "react-native start --reset-cache --experimental-debugger",
-    "test": "jest"
+    "test": "jest",
+    "clean:android": "cd android && ./gradlew clean && cd ../",
+    "clean:ios": "cd ios &&  pod deintegrate && pod install",
+    "build:android": "cd android && ./gradlew assembleDebug && cd ..",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json}\""
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.1.0",
@@ -23,6 +28,7 @@
     "react": "18.3.1",
     "react-i18next": "^15.1.1",
     "react-native": "0.75.4",
+    "react-native-country-picker-modal": "^2.0.0",
     "react-native-paper": "^5.12.5",
     "react-native-reanimated": "^3.16.1",
     "react-native-responsive-fontsize": "^0.5.1",

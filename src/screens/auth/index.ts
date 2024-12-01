@@ -1,2 +1,4 @@
-export {default as Login} from './Login';
+export {default as LoginScreen} from './Login';
 export {default as WelcomeScreen} from './Welcome';
+export {default as SignUpScreen} from './SignUp';
+export {default as CompleteProfileScreen} from './CompleteProfile';

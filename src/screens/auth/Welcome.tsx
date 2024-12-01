@@ -34,19 +34,16 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({navigation}) => {
         />
 
         <Spacer>
+          <PrimaryBtn onPress={() => handleNavigate('SignUp')}>
+            {t(`${baseKey}.getStarted`)}
+          </PrimaryBtn>
           <PrimaryBtn
-            text={t(`${baseKey}.getStarted`)}
-            onPress={() => handleNavigate('SignUp')}
-            children={undefined}
-          />
-          <PrimaryBtn
-            text={t('auth.login')}
             onPress={() => handleNavigate('Login')}
-            children={undefined}
             additionalBtnStyle={{
               backgroundColor: colors.secondaryBtn,
-            }}
-          />
+            }}>
+            {t('auth.login')}
+          </PrimaryBtn>
         </Spacer>
       </SecondaryLayout>
     </PrimaryLayout>

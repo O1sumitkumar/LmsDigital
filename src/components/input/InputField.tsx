@@ -1,66 +1,74 @@
-import Typography from '@typography/Typography';
-import useAppTheme from '@hooks/useAppTheme';
-import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {TextInput, TextInputProps} from 'react-native-paper';
+import * as React from 'react';
+import {TextInput, Text, TextInputProps} from 'react-native-paper';
+import {StyleSheet, View, useColorScheme} from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 
-interface InputFieldProps extends TextInputProps {
-  label: string;
-  isError: boolean;
-  errorText: string;
+interface BtnProps extends TextInputProps {
+  isDisabled?: boolean;
+  errorText?: string;
+  error?: boolean;
+  placeholder?: string;
+  label?: string;
+  id?: string;
+  multiline?: boolean;
+  extraStyle?: any;
 }
 
-const InputField: React.FC<InputFieldProps> = ({
+const InputField: React.FC<BtnProps> = ({
+  error,
+  placeholder,
   label,
-  errorText = 'err',
-  isError,
+  errorText,
+  extraStyle,
   ...props
 }) => {
-  const {colors} = useAppTheme();
+  const colorScheme = useColorScheme();
+  let dark = colorScheme === 'dark';
 
+  const inputStyle = {
+    backgroundColor: dark ? '#333' : '#F5F5F5',
+    borderWidth: 0,
+    paddingVertical: props.multiline ? 15 : 0,
+    width: '100%',
+  };
   return (
-    <View style={styles.container}>
-      <Typography
-        text={label}
-        fontWeight="600"
-        fontSize={14}
-        paddingHorizontal={4}
-      />
+    <View>
+      {Boolean(label) && <Text style={styles.label}>{label}</Text>}
       <TextInput
-        dense
-        // style={styles.input}
+        placeholder={placeholder}
         mode="outlined"
-        cursorColor={colors.primary}
-        outlineColor="transparent"
-        // underlineColor="transparent"
+        contentStyle={styles.inputContent}
+        style={{...inputStyle, ...extraStyle}}
         activeOutlineColor="transparent"
-        contentStyle={{
-          fontSize: RFValue(14),
-        }}
-        outlineStyle={styles.outlineStyle}
+        underlineColor="transparent"
+        outlineColor="transparent"
+        dense
+        placeholderTextColor={dark ? '#B8B8B8' : '#999'}
+        outlineStyle={styles.outlineCnt}
+        cursorColor="#007bff"
         {...props}
       />
-      {!isError && (
-        <Typography
-          paddingHorizontal={4}
-          text={errorText}
-          fontSize={12}
-          fontColor={colors.error}
-        />
-      )}
+      {error && <Text style={styles.errorText}>{errorText}</Text>}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    gap: RFValue(4),
+  errorText: {
+    color: 'red',
+    fontSize: 12,
+    marginTop: 5,
+    paddingHorizontal: 3,
   },
-  outlineStyle: {
-    borderRadius: RFValue(8),
-    backgroundColor: '#F7F7F7',
+  inputContent: {fontSize: 18},
+  outlineCnt: {borderRadius: 8, padding: 0},
+  label: {
+    // color: '#3D3D3D',
+    fontSize: RFValue(11),
+    fontWeight: '600',
+    paddingBottom: 6,
+    paddingHorizontal: 4,
   },
 });
 
-export default React.memo(InputField);
+export default InputField;

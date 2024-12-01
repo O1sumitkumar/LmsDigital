@@ -1,7 +1,12 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  CompleteProfileScreen,
+  LoginScreen,
+  SignUpScreen,
+  WelcomeScreen,
+} from '@screens/auth';
 import {selectLanguage} from '@toolkit/auth/auth.selector';
 import MenuModal from '@components/modal/MenuModal';
-import {Login, WelcomeScreen} from '@screens/auth';
 import arabicLogo from '@assets/svgs/arabicLogo';
 import useAppTheme from '@hooks/useAppTheme';
 import englishLogo from '@assets/svgs/logo';
@@ -48,7 +53,8 @@ function Auth(): React.JSX.Element {
       screenOptions={{
         animation: 'ios_from_right',
         headerBlurEffect: 'light',
-      }}>
+      }}
+      initialRouteName="CompleteProfile">
       <Stack.Group
         screenOptions={{
           headerShown: true,
@@ -65,7 +71,12 @@ function Auth(): React.JSX.Element {
               RenderRightHeader(openMenu, isVisible, closeMenu),
           }}
         />
-        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="SignUp" component={SignUpScreen} />
+        <Stack.Screen
+          name="CompleteProfile"
+          component={CompleteProfileScreen}
+        />
       </Stack.Group>
     </Stack.Navigator>
   );

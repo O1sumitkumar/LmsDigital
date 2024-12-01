@@ -25,7 +25,8 @@
       "@button/*": ["src/components/button/*"],
       "@input/*": ["src/components/input/*"],
       "@card/*": ["src/components/card/*"],
-      "@modal/*": ["src/components/modal/*"]
+      "@modal/*": ["src/components/modal/*"],
+      "@utils/*": ["src/utils/*"]
     }
   }
 }
