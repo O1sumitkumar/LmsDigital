@@ -11,7 +11,7 @@ export default {
     arabic: 'Arabic',
     or: 'Or',
     welcomeScreen: {
-      welcome: 'Welcome to afeed',
+      welcome: '“Welcome to afeed”',
       joinAfeed:
         'Join afeed and Turn Your Passion into Your own Digital Business.',
       getStarted: 'Get Started',
@@ -50,7 +50,7 @@ export default {
       submitBtn: 'Save & proceed',
     },
     verifyAccountScreen: {
-      screenTitle: 'Verify your account',
+      screenTitle: '“Verify your account”',
       subTitle:
         'Thank you for registration. You will receive an email soon to verify your account',
       didntRecieve: 'Didn’t receive an email ?',
@@ -62,14 +62,14 @@ export default {
       submitBtn: 'Start now',
     },
     forgotPasswordScreen: {
-      screenTitle: 'Reset your password',
+      screenTitle: '“Reset your password”',
       subTitle:
         'Enter your email address and we’ll send you a password reset link',
       submitBtn: 'Reset password',
       returnToLogin: 'Return to login',
     },
     resetEmailSentScreen: {
-      screenTitle: 'Email was sent successfully',
+      screenTitle: '“Email was sent successfully”',
       subTitle: 'Check your email for password reset instructions',
       didntRecieve: 'Didn’t receive an email ?',
       submitBtn: 'Resend email',
@@ -80,6 +80,10 @@ export default {
       newPassword: '“New password”',
       confirmNewPassword: 'Confirm new password',
       submitBtn: 'Set password',
+    },
+    resetSuccessfulScreen: {
+      screenTitle: '“Congrats! You can now log in with your new password”',
+      submitBtn: 'Login',
     },
   },
 };

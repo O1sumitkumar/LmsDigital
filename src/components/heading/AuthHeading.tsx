@@ -24,6 +24,7 @@ const AuthHeading: React.FC<AuthHeadingProps> = ({
         text={title}
         fontSize={titleTextSize}
         fontWeight="700"
+        textAlign="center"
         lineHeight={titleTextSize === 24 ? 32 : 24}
       />
       <Typography

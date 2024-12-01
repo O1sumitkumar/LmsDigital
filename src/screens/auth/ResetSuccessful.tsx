@@ -7,14 +7,14 @@ import Secondary from '@layouts/Secondary';
 import Spacer from '@layouts/Spacer';
 import React from 'react';
 
-interface AccountVerifiedProps extends ScreenProps {}
+interface ResetSuccessfulProps extends ScreenProps {}
 
-const AccountVerified: React.FC<AccountVerifiedProps> = ({navigation}) => {
-  const baseKey = 'auth.accountVerifiedScreen';
+const ResetSuccessful: React.FC<ResetSuccessfulProps> = ({navigation}) => {
+  const baseKey = 'auth.resetSuccessfulScreen';
   const {t} = useTranslation();
 
   const handleNavigate = () => {
-    navigation.navigate('SignUp');
+    navigation.navigate('Login');
   };
 
   return (
@@ -23,7 +23,7 @@ const AccountVerified: React.FC<AccountVerifiedProps> = ({navigation}) => {
         <Secondary isCenter gap={24}>
           <AuthHeading
             title={t(`${baseKey}.screenTitle`)}
-            subTitle={t(`${baseKey}.subTitle`)}
+            subTitle={''}
             titleAlign="center"
           />
           <Spacer paddingVertical={0} paddingHorizontal={0} gap={24}>
@@ -37,4 +37,4 @@ const AccountVerified: React.FC<AccountVerifiedProps> = ({navigation}) => {
   );
 };
 
-export default AccountVerified;
+export default ResetSuccessful;

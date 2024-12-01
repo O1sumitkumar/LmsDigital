@@ -5,6 +5,7 @@ import {
   ForgotPasswordScreen,
   LoginScreen,
   ResetEmailSentScreen,
+  ResetSuccessfulScreen,
   SetNewPasswordScreen,
   SignUpScreen,
   VerifyAccountScreen,
@@ -55,6 +56,7 @@ function Auth(): React.JSX.Element {
 
   return (
     <Stack.Navigator
+      initialRouteName="Welcome"
       screenOptions={{
         animation: 'ios_from_right',
         headerBlurEffect: 'extraLight',
@@ -89,6 +91,10 @@ function Auth(): React.JSX.Element {
         <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
         <Stack.Screen name="ResetEmailSent" component={ResetEmailSentScreen} />
         <Stack.Screen name="SetNewPassword" component={SetNewPasswordScreen} />
+        <Stack.Screen
+          name="ResetSuccessful"
+          component={ResetSuccessfulScreen}
+        />
       </Stack.Group>
     </Stack.Navigator>
   );

@@ -1,8 +1,9 @@
 import PhoneWithCountry from '@components/phoneWithCountry/PhoneWithCountry';
 import ProfileUpload from '@components/fileUpload/ImageUpload';
+import DropdownSelect from '@components/dropSelect/DropSelect';
 import PhoneNumber from '@components/phoneNumber/PhoneNumber';
+import {initialCountryCode, servicesList} from '@utils/utils';
 import AvoidKeyBoard from '@layouts/AvoidKeyBoard';
-import {initialCountryCode} from '@utils/utils';
 import AuthHeading from '@heading/AuthHeading';
 import PrimaryLayout from '@layouts/Primary';
 import {useTranslation} from 'react-i18next';
@@ -28,6 +29,7 @@ const renderPhone = ({
 const CompleteProfile: React.FC<CompleteProfileProps> = ({navigation}) => {
   const [countryCode, setCountryCode] =
     useState<CountryCode>(initialCountryCode);
+  const [selected, setSelected] = useState('');
   const baseKey = 'auth.completeProfileScreen';
   const preKey = 'auth.signUpScreen';
   const {t} = useTranslation();
@@ -35,6 +37,8 @@ const CompleteProfile: React.FC<CompleteProfileProps> = ({navigation}) => {
   const handleNavigate = (screen: string) => {
     navigation.navigate(screen);
   };
+
+  console.log('dropDownSelected===>>>', selected);
 
   return (
     <PrimaryLayout edges={['top']}>
@@ -64,10 +68,12 @@ const CompleteProfile: React.FC<CompleteProfileProps> = ({navigation}) => {
               error={false}
               errorText={''}
             />
-            <InputField
+            <DropdownSelect
               label={t(`${baseKey}.services`)}
+              data={servicesList}
+              setSelected={setSelected}
+              placeholder={'choose your service'}
               error={false}
-              errorText={''}
             />
             <InputField
               label={t(`${baseKey}.profileUrl`)}

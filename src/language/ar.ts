@@ -82,5 +82,10 @@ export default {
       confirmNewPassword: 'تأكيد كلمة المرور الجديدة',
       submitBtn: 'ضبط كلمة المرور',
     },
+    resetSuccessfulScreen: {
+      screenTitle:
+        '“تهاني! يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة الخاصة بك.”',
+      submitBtn: 'تسجيل الدخول ',
+    },
   },
 };

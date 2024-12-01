@@ -66,7 +66,7 @@ export const dark = {
     border: 'rgb(117, 119, 128)',
     notification: 'rgb(255, 69, 58)',
     primary: '#196FF0',
-    onPrimary: 'rgb(0, 45, 109)',
+    onPrimary: '#FFFFFF',
     primaryContainer: 'rgb(0, 66, 154)',
     onPrimaryContainer: 'rgb(217, 226, 255)',
     secondary: 'rgb(100, 222, 125)',

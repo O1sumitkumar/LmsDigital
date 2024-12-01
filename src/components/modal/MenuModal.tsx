@@ -51,8 +51,6 @@ const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
     closeMenu();
   };
 
-  console.log(I18nManager);
-
   return (
     <Menu
       contentStyle={[styles.card, {backgroundColor: colors.surface}]}
