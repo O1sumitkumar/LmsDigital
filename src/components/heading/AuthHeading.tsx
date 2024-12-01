@@ -26,7 +26,11 @@ const AuthHeading: React.FC<AuthHeadingProps> = ({
         fontWeight="700"
         lineHeight={titleTextSize === 24 ? 32 : 24}
       />
-      <Typography text={subTitle} fontSize={subTitleTextSize} />
+      <Typography
+        text={subTitle}
+        textAlign="center"
+        fontSize={subTitleTextSize}
+      />
     </View>
   );
 };
@@ -36,6 +40,7 @@ const styles = StyleSheet.create({
     gap: RFValue(12),
     justifyContent: 'center',
     textAlign: 'center',
+    paddingBottom: RFValue(24),
   },
 });
 

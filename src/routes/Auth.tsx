@@ -1,8 +1,13 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
+  AccountVerifiedScreen,
   CompleteProfileScreen,
+  ForgotPasswordScreen,
   LoginScreen,
+  ResetEmailSentScreen,
+  SetNewPasswordScreen,
   SignUpScreen,
+  VerifyAccountScreen,
   WelcomeScreen,
 } from '@screens/auth';
 import {selectLanguage} from '@toolkit/auth/auth.selector';
@@ -54,7 +59,7 @@ function Auth(): React.JSX.Element {
         animation: 'ios_from_right',
         headerBlurEffect: 'light',
       }}
-      initialRouteName="CompleteProfile">
+      initialRouteName="SetNewPassword">
       <Stack.Group
         screenOptions={{
           headerShown: true,
@@ -77,6 +82,14 @@ function Auth(): React.JSX.Element {
           name="CompleteProfile"
           component={CompleteProfileScreen}
         />
+        <Stack.Screen name="VerifyAccount" component={VerifyAccountScreen} />
+        <Stack.Screen
+          name="AccountVerified"
+          component={AccountVerifiedScreen}
+        />
+        <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
+        <Stack.Screen name="ResetEmailSent" component={ResetEmailSentScreen} />
+        <Stack.Screen name="SetNewPassword" component={SetNewPasswordScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );

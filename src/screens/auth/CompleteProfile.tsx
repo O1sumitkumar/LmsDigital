@@ -32,8 +32,8 @@ const CompleteProfile: React.FC<CompleteProfileProps> = ({navigation}) => {
   const preKey = 'auth.signUpScreen';
   const {t} = useTranslation();
 
-  const handleNavigate = () => {
-    navigation.navigate('SignUp');
+  const handleNavigate = (screen: string) => {
+    navigation.navigate(screen);
   };
 
   return (
@@ -107,7 +107,9 @@ const CompleteProfile: React.FC<CompleteProfileProps> = ({navigation}) => {
               country={''}
             />
           </Spacer>
-          <PrimaryBtn>{t(`${baseKey}.screenTitle`)}</PrimaryBtn>
+          <PrimaryBtn onPress={() => handleNavigate('VerifyAccount')}>
+            {t(`${baseKey}.screenTitle`)}
+          </PrimaryBtn>
         </Secondary>
       </AvoidKeyBoard>
     </PrimaryLayout>

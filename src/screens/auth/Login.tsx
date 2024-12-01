@@ -18,8 +18,8 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
   const baseKey = 'auth.loginScreen';
   const {t} = useTranslation();
 
-  const handleNavigate = () => {
-    navigation.navigate('SignUp');
+  const handleNavigate = (screen: string) => {
+    navigation.navigate(screen);
   };
 
   return (
@@ -49,15 +49,13 @@ const Login: React.FC<LoginProps> = ({navigation}) => {
             />
             <CheckBoxWithText
               subTitle={t(`${baseKey}.keepMeText`)}
-              onPress={function (): void {
-                throw new Error('Function not implemented.');
-              }}
+              onPress={() => handleNavigate('ForgotPassword')}
               rightBtnText={t(`${baseKey}.forgetPassword`)}
             />
           </Spacer>
           <PrimaryBtn>{t(`${baseKey}.screenTitle`)}</PrimaryBtn>
           <CombinationTextBtn
-            onPress={handleNavigate}
+            onPress={() => handleNavigate('SignUp')}
             subTitle={t(`${baseKey}.dontHaveAccount`)}
             btnText={t(`${baseKey}.register`)}
           />

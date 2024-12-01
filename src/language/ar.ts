@@ -48,5 +48,39 @@ export default {
       customerPhone: 'الرقم العام (لعملائك)',
       submitBtn: 'حفظ ومتابعة',
     },
+    verifyAccountScreen: {
+      screenTitle: 'التحقق من الحساب',
+      subTitle: `شكرا لك على التسجيل. ستتلقى بريدًا إلكترونيًا
+قريبًا للتحقق من حسابك.`,
+      didntRecieve: 'لم تتلق بريداً إلكترونيا؟',
+      submitBtn: 'إعادة إرسال البريد الإلكتروني',
+    },
+    accountVerifiedScreen: {
+      screenTitle: '”تم التحقق من الحساب“',
+      subTitle: 'استكشف منصتك وابدأ بإضافة منتجاتك الرقمية!',
+      submitBtn: 'ابدأ الآن',
+    },
+    forgotPasswordScreen: {
+      screenTitle: 'أعد ضبط كلمة السر',
+      subTitle:
+        'أدخل عنوان بريدك الإلكتروني وسنرسل لك رابط إعادة تعيين كلمة المرور،',
+      submitBtn: 'إعادة تعيين كلمة المرور',
+      returnToLogin: 'العودة لتسجيل الدخول',
+    },
+
+    resetEmailSentScreen: {
+      screenTitle: 'تم إرسال البريد الإلكتروني بنجاح',
+      subTitle:
+        'تحقق من بريدك الإلكتروني للحصول على تعليمات إعادة تعيين كلمة المرور',
+      didntRecieve: 'لم تتلق بريداً إلكترونيا؟',
+      submitBtn: 'إعادة إرسال البريد الإلكتروني',
+    },
+    setNewPasswordScreen: {
+      screenTitle: '”تعيين كلمة مرور جديدة“',
+      subTitle: 'يجب أن تحتوي كلمة المرور على ثمانية أحرف على الأقل',
+      newPassword: '”كلمة المرور الجديدة“',
+      confirmNewPassword: 'تأكيد كلمة المرور الجديدة',
+      submitBtn: 'ضبط كلمة المرور',
+    },
   },
 };

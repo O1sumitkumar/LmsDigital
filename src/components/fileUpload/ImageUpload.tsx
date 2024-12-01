@@ -49,7 +49,7 @@ const ProfileUpload: React.FC<ImageUploadProps> = ({title}) => {
     <View style={{justifyContent: 'center', gap: 1}}>
       <Text style={styles.label}>{title}</Text>
       <Avatar.Image
-        size={RFValue(90)}
+        size={RFValue(80)}
         style={{backgroundColor: dark ? '#333' : '#F5F5F5', borderWidth: 0}}
         // source={avatarSource ? avatarSource : require('')}
       />

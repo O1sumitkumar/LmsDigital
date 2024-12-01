@@ -2,3 +2,8 @@ export {default as LoginScreen} from './Login';
 export {default as WelcomeScreen} from './Welcome';
 export {default as SignUpScreen} from './SignUp';
 export {default as CompleteProfileScreen} from './CompleteProfile';
+export {default as VerifyAccountScreen} from './VerifyAccount';
+export {default as AccountVerifiedScreen} from './AccountVerified';
+export {default as ForgotPasswordScreen} from './ForgotPassword';
+export {default as ResetEmailSentScreen} from './ResetEmailSent';
+export {default as SetNewPasswordScreen} from './SetNewPassword';

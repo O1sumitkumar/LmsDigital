@@ -33,8 +33,8 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
   const baseKey = 'auth.signUpScreen';
   const {t} = useTranslation();
 
-  const handleNavigate = () => {
-    navigation.navigate('Login');
+  const handleNavigate = (screen: string) => {
+    navigation.navigate(screen);
   };
 
   return (
@@ -84,9 +84,11 @@ const SignUp: React.FC<SignUpProps> = ({navigation}) => {
                 throw new Error('Function not implemented.');
               }}
             />
-            <PrimaryBtn>{t(`${baseKey}.screenTitle`)}</PrimaryBtn>
+            <PrimaryBtn onPress={() => handleNavigate('CompleteProfile')}>
+              {t(`${baseKey}.screenTitle`)}
+            </PrimaryBtn>
             <CombinationTextBtn
-              onPress={handleNavigate}
+              onPress={() => handleNavigate('Login')}
               subTitle={t(`${baseKey}.alreadyHaveAccount`)}
               btnText={t(`${baseKey}.login`)}
             />

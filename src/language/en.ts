@@ -49,5 +49,37 @@ export default {
       customerPhone: 'Public Number (for your customers)',
       submitBtn: 'Save & proceed',
     },
+    verifyAccountScreen: {
+      screenTitle: 'Verify your account',
+      subTitle:
+        'Thank you for registration. You will receive an email soon to verify your account',
+      didntRecieve: 'Didn’t receive an email ?',
+      submitBtn: 'Resend email',
+    },
+    accountVerifiedScreen: {
+      screenTitle: '“Account verified”',
+      subTitle: 'Explore your platform and begin Adding your digital products!',
+      submitBtn: 'Start now',
+    },
+    forgotPasswordScreen: {
+      screenTitle: 'Reset your password',
+      subTitle:
+        'Enter your email address and we’ll send you a password reset link',
+      submitBtn: 'Reset password',
+      returnToLogin: 'Return to login',
+    },
+    resetEmailSentScreen: {
+      screenTitle: 'Email was sent successfully',
+      subTitle: 'Check your email for password reset instructions',
+      didntRecieve: 'Didn’t receive an email ?',
+      submitBtn: 'Resend email',
+    },
+    setNewPasswordScreen: {
+      screenTitle: '“Set a new password”',
+      subTitle: 'Passwords must contain at least eight characters',
+      newPassword: '“New password”',
+      confirmNewPassword: 'Confirm new password',
+      submitBtn: 'Set password',
+    },
   },
 };

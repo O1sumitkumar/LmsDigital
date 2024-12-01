@@ -3,9 +3,9 @@ import {StyleSheet, View} from 'react-native';
 import {Text} from 'react-native-paper';
 
 interface CombinationTextBtnProps {
-  onPress: () => void;
-  subTitle: string;
-  btnText: string;
+  onPress?: () => void;
+  subTitle?: string;
+  btnText?: string;
 }
 
 const CombinationTextBtn: React.FC<CombinationTextBtnProps> = ({
