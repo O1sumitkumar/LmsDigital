@@ -59,7 +59,7 @@ function Auth(): React.JSX.Element {
         animation: 'ios_from_right',
         headerBlurEffect: 'light',
       }}
-      initialRouteName="SetNewPassword">
+      initialRouteName="">
       <Stack.Group
         screenOptions={{
           headerShown: true,
