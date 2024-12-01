@@ -1,17 +1,23 @@
-import kuwaitFlag from '@assets/svgs/kuwaitFlag';
+import {Language, toggleLanguage} from '@toolkit/auth/auth.slice';
 import {unitedStateFlag} from '@assets/svgs/unitedStateFlag';
 import Typography from '@components/typography/Typography';
-import useAppTheme from '@hooks/useAppTheme';
 import {selectLanguage} from '@toolkit/auth/auth.selector';
-import {Language, toggleLanguage} from '@toolkit/auth/auth.slice';
-import {AppDispatch, RootState} from '@toolkit/store';
-import React from 'react';
-import {useTranslation} from 'react-i18next';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
-import {Menu} from 'react-native-paper';
 import {RFValue} from 'react-native-responsive-fontsize';
-import {SvgXml} from 'react-native-svg';
+import {AppDispatch, RootState} from '@toolkit/store';
 import {useDispatch, useSelector} from 'react-redux';
+import kuwaitFlag from '@assets/svgs/kuwaitFlag';
+import useAppTheme from '@hooks/useAppTheme';
+import {useTranslation} from 'react-i18next';
+import {Menu} from 'react-native-paper';
+import {SvgXml} from 'react-native-svg';
+import React from 'react';
+import {
+  DevSettings,
+  I18nManager,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 interface MenuModalProps {
   visible: boolean;
@@ -22,7 +28,6 @@ interface MenuModalProps {
 const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
   const curLan = useSelector<RootState, string>(selectLanguage);
   const dispatch = useDispatch<AppDispatch>();
-  const {i18n} = useTranslation();
   const {colors} = useAppTheme();
   const {t} = useTranslation();
 
@@ -40,10 +45,13 @@ const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
   ];
 
   const handleLanguageChange = (language: Language) => {
+    I18nManager.forceRTL(language === 'ar');
     dispatch(toggleLanguage(language));
-    i18n.changeLanguage(language);
+    DevSettings.reload();
     closeMenu();
   };
+
+  console.log(I18nManager);
 
   return (
     <Menu

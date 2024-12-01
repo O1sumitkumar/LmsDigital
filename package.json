@@ -9,7 +9,7 @@
     "lint:fix": "eslint .  --fix",
     "start": "react-native start --reset-cache --experimental-debugger",
     "test": "jest",
-    "clean:android": "cd android && ./gradlew clean && cd ../",
+    "clean:android": "cd android && gradlew clean && cd ../",
     "clean:ios": "cd ios &&  pod deintegrate && pod install",
     "build:android": "cd android && ./gradlew assembleDebug && cd ..",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json}\"",
