@@ -1,4 +1,14 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {selectLanguage} from '@toolkit/auth/auth.selector';
+import MenuModal from '@components/modal/MenuModal';
+import arabicLogo from '@assets/svgs/arabicLogo';
+import useAppTheme from '@hooks/useAppTheme';
+import englishLogo from '@assets/svgs/logo';
+import {RootState} from '@toolkit/store';
+import {useSelector} from 'react-redux';
+import {SvgXml} from 'react-native-svg';
+import React, {useState} from 'react';
+import {View} from 'react-native';
 import {
   AccountVerifiedScreen,
   CompleteProfileScreen,
@@ -11,16 +21,6 @@ import {
   VerifyAccountScreen,
   WelcomeScreen,
 } from '@screens/auth';
-import {selectLanguage} from '@toolkit/auth/auth.selector';
-import MenuModal from '@components/modal/MenuModal';
-import arabicLogo from '@assets/svgs/arabicLogo';
-import useAppTheme from '@hooks/useAppTheme';
-import englishLogo from '@assets/svgs/logo';
-import {RootState} from '@toolkit/store';
-import {useSelector} from 'react-redux';
-import {SvgXml} from 'react-native-svg';
-import React, {useState} from 'react';
-import {View} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 

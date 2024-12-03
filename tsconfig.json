@@ -26,7 +26,10 @@
       "@input/*": ["src/components/input/*"],
       "@card/*": ["src/components/card/*"],
       "@modal/*": ["src/components/modal/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@user/*": ["src/screens/home/user/*"],
+      "@creator/*": ["src/screens/home/creator/*"],
+      "@admins/*": ["src/screens/home/admins/*"]
     }
   }
 }

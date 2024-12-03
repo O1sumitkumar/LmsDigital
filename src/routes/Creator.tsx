@@ -1,5 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {DashBoard} from '@screens/home/DashBoard';
+import {DashBoard} from '@screens/home/creator/home/DashBoard';
 import React from 'react';
 
 const Creator = createNativeStackNavigator();

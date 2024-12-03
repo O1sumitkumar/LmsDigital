@@ -5,10 +5,10 @@ import React from 'react';
 
 interface TypographyProps {
   text: string;
-  fontSize: 12 | 14 | 16 | 24;
+  fontSize: 12 | 14 | 18 | 20 | 16 | 24;
   textAlign?: 'left' | 'center' | 'right';
   fontWeight?: 'normal' | 'bold' | '600' | '700' | '500' | '400';
-  lineHeight?: 14 | 24 | 32;
+  lineHeight?: 14 | 18 | 20 | 24 | 32;
   fontColor?: string;
   paddingHorizontal?: number;
   paddingVertical?: number;
