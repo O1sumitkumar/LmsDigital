@@ -1,23 +1,19 @@
+import {I18nManager, StyleSheet, TouchableOpacity, View} from 'react-native';
 import {Language, toggleLanguage} from '@toolkit/auth/auth.slice';
 import {unitedStateFlag} from '@assets/svgs/unitedStateFlag';
-import Typography from '@components/typography/Typography';
 import {selectLanguage} from '@toolkit/auth/auth.selector';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {AppDispatch, RootState} from '@toolkit/store';
 import {useDispatch, useSelector} from 'react-redux';
 import kuwaitFlag from '@assets/svgs/kuwaitFlag';
+import Typography from '@typography/Typography';
+import MessageModal from '@modal/MessageModal';
 import useAppTheme from '@hooks/useAppTheme';
 import {useTranslation} from 'react-i18next';
+import RNRestart from 'react-native-restart';
 import {Menu} from 'react-native-paper';
 import {SvgXml} from 'react-native-svg';
-import React from 'react';
-import {
-  DevSettings,
-  I18nManager,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import React, {useState} from 'react';
 
 interface MenuModalProps {
   visible: boolean;
@@ -26,6 +22,7 @@ interface MenuModalProps {
 }
 
 const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
   const curLan = useSelector<RootState, string>(selectLanguage);
   const dispatch = useDispatch<AppDispatch>();
   const {colors} = useAppTheme();
@@ -35,19 +32,21 @@ const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
     {
       icon: <SvgXml xml={unitedStateFlag(RFValue(20))} />,
       title: 'English',
-      onPress: () => handleLanguageChange('en'),
+      onPress: () => setIsVisible(true),
     },
     {
       icon: <SvgXml xml={kuwaitFlag(RFValue(20))} />,
       title: t('auth.arabic'),
-      onPress: () => handleLanguageChange('ar'),
+      onPress: () => setIsVisible(true),
     },
   ];
 
-  const handleLanguageChange = (language: Language) => {
+  const handleLanguageChange = () => {
+    const language: Language = curLan === 'ar' ? 'ar' : 'en';
+    if (curLan === language) return;
     I18nManager.forceRTL(language === 'ar');
     dispatch(toggleLanguage(language));
-    DevSettings.reload();
+    RNRestart.restart();
     closeMenu();
   };
 
@@ -81,6 +80,15 @@ const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
           </TouchableOpacity>
         </View>
       ))}
+      <MessageModal
+        message={'App needs to be restarted, do you want to continue?'}
+        title={'Confirmation'}
+        isVisible={isVisible}
+        children={undefined}
+        setIsVisible={setIsVisible}
+        onContainedBtnPress={handleLanguageChange}
+        // onOutlinedBtnPress={}
+      />
     </Menu>
   );
 };

@@ -13,7 +13,7 @@ function ParentNavigator(): React.JSX.Element {
 
   return (
     <ParentStack.Navigator>
-      {!userData ? (
+      {userData ? (
         <ParentStack.Screen
           options={{headerShown: false}}
           name="Private"

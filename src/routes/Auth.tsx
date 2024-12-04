@@ -35,8 +35,6 @@ const RenderRightHeader = (
 };
 
 const RenderLeftHeader = (isArabic: boolean, colors: string) => {
-  console.log(colors);
-
   const currentLogo = isArabic ? arabicLogo(colors) : englishLogo(colors);
   return (
     <View>

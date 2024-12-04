@@ -3,8 +3,8 @@ import {StyleSheet, View} from 'react-native';
 import PrimaryBtn from '@button/PrimaryBtn';
 import React from 'react';
 
-interface FooterBtnProps {
-  onContainedBtnPress?: () => void;
+export interface FooterBtnProps {
+  onContainedBtnPress: () => void;
   onOutlinedBtnPress?: () => void;
   containedBtnText?: string;
   outlinedBtnText?: string;
