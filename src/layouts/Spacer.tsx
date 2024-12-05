@@ -12,8 +12,8 @@ interface SpacerProps {
 const Spacer: React.FC<SpacerProps> = ({
   gap = 10,
   children,
-  paddingHorizontal = 10,
-  paddingVertical = 10,
+  paddingHorizontal = 0,
+  paddingVertical = 0,
 }) => {
   return (
     <View

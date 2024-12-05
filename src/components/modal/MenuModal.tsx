@@ -16,14 +16,15 @@ import {SvgXml} from 'react-native-svg';
 import React, {useState} from 'react';
 
 interface MenuModalProps {
-  visible: boolean;
   closeMenu: () => void;
   openMenu: () => void;
+  visible: boolean;
 }
 
 const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
   const curLan = useSelector<RootState, string>(selectLanguage);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [arg, setArg] = useState<Language>('en');
   const dispatch = useDispatch<AppDispatch>();
   const {colors} = useAppTheme();
   const {t} = useTranslation();
@@ -32,21 +33,31 @@ const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
     {
       icon: <SvgXml xml={unitedStateFlag(RFValue(20))} />,
       title: 'English',
-      onPress: () => setIsVisible(true),
+      onPress: () => {
+        setIsVisible(true);
+        setArg('en');
+      },
     },
     {
       icon: <SvgXml xml={kuwaitFlag(RFValue(20))} />,
       title: t('auth.arabic'),
-      onPress: () => setIsVisible(true),
+      onPress: () => {
+        setIsVisible(true);
+        setArg('ar');
+      },
     },
   ];
 
   const handleLanguageChange = () => {
-    const language: Language = curLan === 'ar' ? 'ar' : 'en';
-    if (curLan === language) return;
-    I18nManager.forceRTL(language === 'ar');
-    dispatch(toggleLanguage(language));
+    if (curLan === arg) {
+      setIsVisible(false);
+      closeMenu();
+      return;
+    }
+    I18nManager.forceRTL(arg === 'ar');
+    dispatch(toggleLanguage(arg));
     RNRestart.restart();
+    setIsVisible(false);
     closeMenu();
   };
 
@@ -61,7 +72,7 @@ const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
       anchor={
         <TouchableOpacity onPress={openMenu}>
           <SvgXml
-            xml={curLan === 'ar' ? kuwaitFlag(30) : unitedStateFlag(30)}
+            xml={I18nManager.isRTL ? kuwaitFlag(30) : unitedStateFlag(30)}
           />
         </TouchableOpacity>
       }>
@@ -84,10 +95,9 @@ const MenuModal = ({visible, closeMenu, openMenu}: MenuModalProps) => {
         message={'App needs to be restarted, do you want to continue?'}
         title={'Confirmation'}
         isVisible={isVisible}
-        children={undefined}
         setIsVisible={setIsVisible}
         onContainedBtnPress={handleLanguageChange}
-        // onOutlinedBtnPress={}
+        containedBtnText="Confirm"
       />
     </Menu>
   );

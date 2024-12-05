@@ -19,21 +19,23 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({navigation}) => {
 
   return (
     <PrimaryLayout>
-      <SecondaryLayout gap={24} paddingVertical={20} isCenter>
-        <Typography
-          text={t(`${baseKey}.welcome`)}
-          fontSize={24}
-          lineHeight={32}
-          textAlign="center"
-          fontWeight="bold"
-        />
-        <Typography
-          text={t(`${baseKey}.joinAfeed`)}
-          fontSize={14}
-          textAlign="center"
-        />
+      <SecondaryLayout gap={48} paddingVertical={20} isCenter>
+        <Spacer gap={24}>
+          <Typography
+            text={t(`${baseKey}.welcome`)}
+            fontSize={24}
+            lineHeight={32}
+            textAlign="center"
+            fontWeight="bold"
+          />
+          <Typography
+            text={t(`${baseKey}.joinAfeed`)}
+            fontSize={14}
+            textAlign="center"
+          />
+        </Spacer>
 
-        <Spacer>
+        <Spacer paddingHorizontal={16} gap={16}>
           <PrimaryBtn onPress={() => handleNavigate('SignUp')}>
             {t(`${baseKey}.getStarted`)}
           </PrimaryBtn>

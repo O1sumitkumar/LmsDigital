@@ -1,14 +1,11 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {selectLanguage} from '@toolkit/auth/auth.selector';
 import MenuModal from '@components/modal/MenuModal';
 import arabicLogo from '@assets/svgs/arabicLogo';
+import {I18nManager, View} from 'react-native';
 import useAppTheme from '@hooks/useAppTheme';
 import englishLogo from '@assets/svgs/logo';
-import {RootState} from '@toolkit/store';
-import {useSelector} from 'react-redux';
 import {SvgXml} from 'react-native-svg';
 import React, {useState} from 'react';
-import {View} from 'react-native';
 import {
   AccountVerifiedScreen,
   CompleteProfileScreen,
@@ -45,8 +42,7 @@ const RenderLeftHeader = (isArabic: boolean, colors: string) => {
 
 function Auth(): React.JSX.Element {
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const language = useSelector<RootState, string>(selectLanguage);
-  const isArabic = language === 'ar';
+  const isArabic = I18nManager.isRTL;
   const {colors} = useAppTheme();
 
   const openMenu = () => setIsVisible(true);

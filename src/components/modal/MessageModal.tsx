@@ -9,6 +9,8 @@ interface MessageModalProps extends PromptModalProps {
 const MessageModal: React.FC<MessageModalProps> = ({
   onContainedBtnPress,
   onOutlinedBtnPress,
+  outlinedBtnText,
+  containedBtnText,
   setIsVisible,
   isVisible,
   message,
@@ -20,7 +22,9 @@ const MessageModal: React.FC<MessageModalProps> = ({
       onContainedBtnPress={onContainedBtnPress}
       onOutlinedBtnPress={onOutlinedBtnPress}
       isVisible={isVisible}
-      setIsVisible={setIsVisible}>
+      setIsVisible={setIsVisible}
+      outlinedBtnText={outlinedBtnText}
+      containedBtnText={containedBtnText}>
       <Typography text={message} textAlign="center" fontSize={14} />
     </PromptModal>
   );

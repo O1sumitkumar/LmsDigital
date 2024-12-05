@@ -19,6 +19,8 @@ const PromptModal: React.FC<PromptModalProps> = ({
   onContainedBtnPress,
   title = 'Set Title',
   onOutlinedBtnPress,
+  outlinedBtnText,
+  containedBtnText,
   isVisible,
   children,
 }) => {
@@ -47,6 +49,8 @@ const PromptModal: React.FC<PromptModalProps> = ({
           <FooterBtn
             onContainedBtnPress={onContainedBtnPress}
             onOutlinedBtnPress={onOutlinedBtnPress ?? hideDialog}
+            containedBtnText={containedBtnText}
+            outlinedBtnText={outlinedBtnText}
           />
         </Spacer>
       </Dialog>
@@ -59,7 +63,7 @@ const styles = StyleSheet.create({
     borderRadius: RFValue(12),
     paddingHorizontal: RFValue(16),
     paddingBottom: RFValue(24),
-    paddingTop: RFValue(24),
+    paddingTop: RFValue(30),
   },
 });
 
