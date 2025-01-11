@@ -40,7 +40,8 @@ const SecondaryLayout: React.FC<SecondaryLayoutProps> = ({
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
           centerContent
-          key="secondaryLayout">
+          key="secondaryLayout"
+          style={style.scrollView}>
           <View style={isCenter ? centerContainer : defaultContainer}>
             {children}
           </View>
@@ -58,8 +59,10 @@ const style = StyleSheet.create({
   container: {
     gap: RFValue(16),
     paddingVertical: RFValue(16),
-    // backgroundColor: 'red',
-    flex: 1,
+    flexGrow: 1,
+  },
+  scrollView: {
+    flexGrow: 1,
   },
 });
 
