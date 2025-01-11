@@ -27,9 +27,10 @@
       "@card/*": ["src/components/card/*"],
       "@modal/*": ["src/components/modal/*"],
       "@utils/*": ["src/utils/*"],
-      "@user/*": ["src/screens/home/user/*"],
-      "@creator/*": ["src/screens/home/creator/*"],
-      "@admins/*": ["src/screens/home/admins/*"]
+      "@auth/*": ["src/screens/auth/*"],
+      "@user/*": ["src/screens/user/*"],
+      "@creator/*": ["src/screens/creator/*"],
+      "@admin/*": ["src/screens/admin/*"]
     }
   }
 }

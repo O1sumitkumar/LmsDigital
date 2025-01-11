@@ -1,5 +1,5 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {RootState} from '@toolkit/rootReducer';
+import {selectUserData} from '@toolkit/auth/auth.selector';
 import PrivateRoutes from '@routes/Private';
 import {useSelector} from 'react-redux';
 import Auth from '@routes/Auth';
@@ -9,11 +9,11 @@ const MainStack = createNativeStackNavigator();
 const ParentStack = createNativeStackNavigator();
 
 function ParentNavigator(): React.JSX.Element {
-  const {userData} = useSelector((state: RootState) => state?.userData);
+  const userData = useSelector(selectUserData);
 
   return (
     <ParentStack.Navigator>
-      {userData ? (
+      {!userData ? (
         <ParentStack.Screen
           options={{headerShown: false}}
           name="Private"

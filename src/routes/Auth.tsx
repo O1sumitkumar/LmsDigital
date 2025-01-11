@@ -9,17 +9,17 @@ import React, {useState} from 'react';
 import {
   AccountVerifiedScreen,
   CompleteProfileScreen,
-  ForgotPasswordScreen,
-  LoginScreen,
-  ResetEmailSentScreen,
   ResetSuccessfulScreen,
+  ForgotPasswordScreen,
+  ResetEmailSentScreen,
   SetNewPasswordScreen,
-  SignUpScreen,
   VerifyAccountScreen,
   WelcomeScreen,
+  SignUpScreen,
+  LoginScreen,
 } from '@screens/auth';
 
-const Stack = createNativeStackNavigator();
+const AuthStack = createNativeStackNavigator();
 
 const RenderRightHeader = (
   openMenu: () => void,
@@ -49,13 +49,13 @@ function Auth(): React.JSX.Element {
   const closeMenu = () => setIsVisible(false);
 
   return (
-    <Stack.Navigator
+    <AuthStack.Navigator
       initialRouteName="Welcome"
       screenOptions={{
         animation: 'ios_from_right',
         headerBlurEffect: 'extraLight',
       }}>
-      <Stack.Group
+      <AuthStack.Group
         screenOptions={{
           headerShown: true,
           headerTransparent: true,
@@ -63,7 +63,7 @@ function Auth(): React.JSX.Element {
           navigationBarTranslucent: true,
           headerLeft: () => RenderLeftHeader(isArabic, colors.text),
         }}>
-        <Stack.Screen
+        <AuthStack.Screen
           name="Welcome"
           component={WelcomeScreen}
           options={{
@@ -71,26 +71,38 @@ function Auth(): React.JSX.Element {
               RenderRightHeader(openMenu, isVisible, closeMenu),
           }}
         />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-        <Stack.Screen
+        <AuthStack.Screen name="Login" component={LoginScreen} />
+        <AuthStack.Screen name="SignUp" component={SignUpScreen} />
+        <AuthStack.Screen
           name="CompleteProfile"
           component={CompleteProfileScreen}
         />
-        <Stack.Screen name="VerifyAccount" component={VerifyAccountScreen} />
-        <Stack.Screen
+        <AuthStack.Screen
+          name="VerifyAccount"
+          component={VerifyAccountScreen}
+        />
+        <AuthStack.Screen
           name="AccountVerified"
           component={AccountVerifiedScreen}
         />
-        <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-        <Stack.Screen name="ResetEmailSent" component={ResetEmailSentScreen} />
-        <Stack.Screen name="SetNewPassword" component={SetNewPasswordScreen} />
-        <Stack.Screen
+        <AuthStack.Screen
+          name="ForgotPassword"
+          component={ForgotPasswordScreen}
+        />
+        <AuthStack.Screen
+          name="ResetEmailSent"
+          component={ResetEmailSentScreen}
+        />
+        <AuthStack.Screen
+          name="SetNewPassword"
+          component={SetNewPasswordScreen}
+        />
+        <AuthStack.Screen
           name="ResetSuccessful"
           component={ResetSuccessfulScreen}
         />
-      </Stack.Group>
-    </Stack.Navigator>
+      </AuthStack.Group>
+    </AuthStack.Navigator>
   );
 }
 
